@@ -1,0 +1,33 @@
+/* functional styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    min-height: 100vh;
+    width: 100%;
+}
+
+:root {
+    --bg-color: #181818;
+    --text-color: #ffffff;
+    --primary-color: #ffcc00;
+
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #007bff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-color);
+
+}
