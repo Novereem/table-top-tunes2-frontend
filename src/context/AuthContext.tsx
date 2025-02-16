@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { AuthContextType } from "../types/auth";
 import { loginUser } from "../services/authService";
+import {useNotification} from "./NotificationContext.tsx";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [token, setToken] = useState<string | null>(() => localStorage.getItem("token"));
+    const { showNotification } = useNotification();
 
     useEffect(() => {
         if (token) {
@@ -17,11 +19,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const login = async (username: string, password: string) => {
         try {
-            const token = await loginUser(username, password);
-            console.log("Token received:", token);
-            setToken(token);
+            const response = await loginUser(username, password);
+            if (response.userMessage) {
+                showNotification(response.userMessage);
+            }
+            setToken(response.data.token);
         } catch (error) {
-            console.error("Login failed:", error);
+            let errorMessage = "Something went wrong, please try again later.";
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+            showNotification(errorMessage);
             throw error;
         }
     };

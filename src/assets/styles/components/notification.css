@@ -1,0 +1,29 @@
+.notificationBar {
+    background: var(--primary-color);
+
+    height: 100%;
+    transition: width 50ms linear;
+}
+
+.notificationBarContainer {
+    height: 5px;
+    background: #ccc;
+    margin-top: 5px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.notification {
+    background: var(--bg-color);
+    color: var(--text-color);
+    box-shadow: 0 0 6px var(--shadow-color);
+
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+    min-width: 300px;
+}

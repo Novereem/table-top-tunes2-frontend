@@ -1,17 +1,17 @@
 import React from "react";
-import { useTheme } from "./context/ThemeContext";
 import './assets/styles/main.css';
+import {AuthProvider} from "./context/AuthContext.tsx";
+import Router from "./Router.tsx";
+import {NotificationProvider} from "./context/NotificationContext.tsx";
 
 const App: React.FC = () => {
-    const { theme, toggleTheme } = useTheme();
 
     return (
-        <div>
-            <h1>Current Theme: {theme}</h1>
-            <button onClick={toggleTheme}>
-                Switch to {theme === "light" ? "Dark" : "Light"} Mode
-            </button>
-        </div>
+        <NotificationProvider>
+            <AuthProvider>
+                <Router />
+            </AuthProvider>
+        </NotificationProvider>
     );
 };
 

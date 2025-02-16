@@ -1,4 +1,5 @@
 import React from "react";
+import "../assets/styles/pages/login.css"
 
 interface LoginFormProps {
     onSubmit: (e: React.FormEvent) => void;
@@ -10,7 +11,7 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, username, setUsername, password, setPassword }) => {
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="login-form">
             <input
                 type="text"
                 placeholder="Username"
