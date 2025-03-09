@@ -1,11 +1,12 @@
 import DashboardLayout from "../layouts/DashboardLayout.tsx";
 import React from "react";
+import SceneList from "../components/scenes/SceneList.tsx";
 
 const Dashboard: React.FC = () => {
 
     return (
         <DashboardLayout>
-            <h2>Dashboard</h2>
+            <SceneList />
         </DashboardLayout>
     );
 };

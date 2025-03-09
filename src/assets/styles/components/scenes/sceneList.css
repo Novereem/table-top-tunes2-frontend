@@ -1,0 +1,11 @@
+.sceneListContainer {
+    height: 90vh;
+    width: 25vw;
+    border: 1px solid black;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.sceneListContainer::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar on chrome, safari, and edge*/
+}

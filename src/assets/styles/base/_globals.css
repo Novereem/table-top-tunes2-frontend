@@ -13,6 +13,7 @@
 :root {
     --bg-color: #181818;
     --text-color: #ffffff;
+    --text-color-secondary: #cccccc;
     --primary-color: #ffc2f8;
     --primary-color-highlight: #ff84f2;
     --shadow-color: rgba(0, 0, 0, 0.5);
@@ -21,6 +22,7 @@
 [data-theme="light"] {
     --bg-color: #ffffff;
     --text-color: #000000;
+    --text-color-secondary: #939393;
     --primary-color: #007bff;
     --primary-color-highlight: #3e97ff;
     --shadow-color: rgba(0, 0, 0, 0.12);
@@ -32,4 +34,22 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     color: var(--text-color);
 
+}
+
+/* Components */
+.commonButton {
+    flex: 1; /* Makes button take the full width of the container */
+    padding: 1rem; /* Adjust padding for a larger button */
+    font-size: 1.25rem; /* Slightly larger text */
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--primary-color-highlight));
+    color: var(--bg-color);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    margin: 0; /* Remove margin so it fully fills parent */
+}
+
+.commonButton:hover {
+    transform: scale(1.05);
 }
